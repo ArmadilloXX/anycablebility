@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |parser|
+  parser.on( '--help', 'Print this help') do 
+    puts parser
+  end
+
+  parser.on('-s', '--server SERVER', 'Full Anycable Websocket server url') do |value|
+    options[:server] = value
+  end
+end.parse!
+
+puts options
+puts "Start testing Anycable WS server on #{ options[:server]} " if options[:server]
