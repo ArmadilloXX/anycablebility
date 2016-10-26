@@ -1,5 +1,7 @@
 require "anycablebility/version"
 
 module Anycablebility
-  # Your code goes here...
+  def self.start(options)
+    puts "Starting checking AnyCable WS server at: #{options[:server]}"
+  end
 end

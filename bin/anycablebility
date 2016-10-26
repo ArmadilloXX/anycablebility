@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'anycablebility'
 
 options = {}
 
 OptionParser.new do |parser|
+
   parser.on_tail '--version', 'Show version' do
     puts "anycablebility v#{Anycablebility::VERSION}"
     exit
@@ -12,10 +14,13 @@ OptionParser.new do |parser|
   
   parser.on_tail( '--help', 'Print this help') do 
     puts parser
+    exit
   end
-
+  
   parser.on('-s', '--server SERVER', 'Full Anycable Websocket server url') do |value|
     options[:server] = value
   end
 end.parse!
+
+Anycablebility.start(options)
 
